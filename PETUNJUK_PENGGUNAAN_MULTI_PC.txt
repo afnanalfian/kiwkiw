@@ -1,0 +1,66 @@
+================================================================================
+  PANDUAN PENGGUNAAN OTOMASI FASIH-SM SE2026 (MULTI-PC PARALEL 8 KOMPUTER)
+                      BPS KABUPATEN PANGKAJENE DAN KEPULAUAN
+================================================================================
+
+A. PEMBAGIAN BEBAN KERJA (Total 14.675 Assignment Sesuai Murni #DC_00):
+   (Dimulai dari assignment Master #300 karena #1 s.d. #299 sudah selesai)
+
+   - PC 1 : Assignment Master #300   s.d. #2.134  (Total: 1.835 assignment)
+   - PC 2 : Assignment Master #2.135 s.d. #3.969  (Total: 1.835 assignment)
+   - PC 3 : Assignment Master #3.970 s.d. #5.804  (Total: 1.835 assignment)
+   - PC 4 : Assignment Master #5.805 s.d. #7.638  (Total: 1.834 assignment)
+   - PC 5 : Assignment Master #7.639 s.d. #9.472  (Total: 1.834 assignment)
+   - PC 6 : Assignment Master #9.473 s.d. #11.306 (Total: 1.834 assignment)
+   - PC 7 : Assignment Master #11.307 s.d. #13.140 (Total: 1.834 assignment)
+   - PC 8 : Assignment Master #13.141 s.d. #14.974 (Total: 1.834 assignment)
+
+--------------------------------------------------------------------------------
+B. LANGKAH PERSIAPAN DI SETIAP PC (PC 1 s.d. PC 8):
+--------------------------------------------------------------------------------
+1. Ekstrak file ZIP ini ke folder lokal di PC tersebut (misalnya di Desktop atau Drive D:\).
+2. Pastikan di PC tersebut sudah terpasang:
+   - Python (versi 3.8 ke atas) - pastikan opsi 'Add Python to PATH' dicentang saat install.
+   - Google Chrome.
+3. Jalankan 'install_dependencies.bat' (klik 2x):
+   - Script ini akan otomatis menjalankan: pip install playwright
+   - Tunggu hingga proses selesai ("Successfully installed playwright").
+
+--------------------------------------------------------------------------------
+C. CARA MENJALANKAN OTOMASI:
+--------------------------------------------------------------------------------
+1. Klik 2x file 'jalankan_otomasi_fasih.bat'.
+2. Pilih nomor PC untuk komputer tersebut:
+   - Jika ini PC 1, ketik 1 lalu tekan [ENTER].
+   - Jika ini PC 2, ketik 2 lalu tekan [ENTER].
+   - ... begitu seterusnya untuk PC 3 s.d. PC 8.
+3. Pilih metode login:
+   - [1] SSO Eksternal (Otomatis) [DEFAULT]:
+         Ketik email & password akun SSO Eksternal Anda di terminal (hanya perlu
+         diinput sekali, akan tersimpan otomatis).
+         Sistem akan membuka Chrome, mengklik "Lanjutkan dengan SSO Eksternal",
+         mengisi kredensial, dan langsung mulai otomatis!
+   - [2] SSO Pegawai (Manual):
+         Login manual sendiri di jendela browser Chrome.
+4. Tentukan titik mulai (Default: 1, atau lanjutkan nomor checkpoint):
+   - Tekan [ENTER] untuk mulai dari nomor 1 PC tersebut.
+5. Otomasi langsung berjalan tanpa henti!
+
+--------------------------------------------------------------------------------
+D. PENANGANAN SESI LOGOUT OTOMATIS (AUTO RE-LOGIN):
+--------------------------------------------------------------------------------
+1. Auto Re-Login (Mode SSO Eksternal):
+   Jika sesi login terputus atau logout karena akun dipakai bersamaan di banyak PC,
+   sistem akan OTOMATIS melakukan login ulang dengan cepat (3-5 detik) dan langsung
+   melanjutkan assignment yang sedang dikerjakan TANPA perlu intervensi operator!
+
+2. Checkpoint Mandiri per-PC:
+   Setiap PC menyimpan progress pengerjaannya masing-masing di file
+   'hasil-analisis/checkpoint_pc_X.json'.
+   Jika komputer dimatikan atau koneksi terputus, cukup jalankan kembali
+   'jalankan_otomasi_fasih.bat' dan script akan otomatis melanjutkan dari nomor terakhir!
+
+3. Skip Catatan Sudah Terisi:
+   Jika rincian 13.g pada kuesioner sudah terisi catatan apapun sebelumnya,
+   script otomatis melewatinya (skip) dan lanjut ke assignment berikutnya.
+================================================================================
